@@ -1,0 +1,109 @@
+.element_body{
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+    text-align: left;
+}
+.element_body li{
+    color: rgba(0,0,0,0.54);
+    font-size: 13px;
+    line-height: 16px;
+    height: auto;
+    padding: 0;
+    padding: 8px 24px;
+
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    white-space: nowrap;
+
+}
+.pos_item{
+    margin-bottom: 10px;
+}
+.no_space{
+    white-space: normal;
+    padding-bottom: 0 !important;
+}
+.line{
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    margin-top: 5px;
+}
+.element_cell{
+    padding-right: 0;
+    width: 100%;
+    margin: 0 !important;
+    position: relative;
+    z-index: 4;
+    padding: 16px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.element{
+    flex-direction: row;
+    display: flex;
+    min-width: 100%;
+    justify-content: space-between;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 85px;
+}
+.element a{
+    text-decoration: none;
+    color: rgba(0,0,0,0.54);
+    transition: color .3s;
+
+}
+.column{
+    flex-direction: column;
+}
+#link{
+    font-size: 10px;
+    transform: translateY(-4px);
+}
+.element a:hover{
+    color: rgba(0,0,0,0.7);
+}
+.element_body ul{
+    list-style: none;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 3fr 3fr 4fr 65px;
+    padding: 0;
+}
+.delete{
+    color: rgba(0,0,0,0.54);
+    cursor: pointer;
+    transition: color .3s;
+}
+.delete:hover{
+    color: rgba(0,0,0,0.7);
+}
+@media only screen and (max-width: 720px)  {
+    .first_item{
+        display: none;
+    }
+    .element_body ul{
+        grid-template-columns: 3fr 3fr 4fr 32px !important;
+    }
+}
+
+@media only screen and (max-width: 530px)  {
+    .element_body ul{
+        grid-template-columns: 3fr 3fr 4fr 17px !important;
+    }
+    .element_body li{
+        padding: 8px 2px !important;
+    }
+    .element_cell{
+        width: 77%;
+    }
+}
+@media only screen and (max-width: 920px)  {
+    .element_body ul{
+        grid-template-columns: 3fr 3fr 3fr 4fr 36px;
+    }
+    .element_body li{
+        padding: 8px 10px;
+    }
+}

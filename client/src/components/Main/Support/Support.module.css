@@ -1,0 +1,93 @@
+.support{
+    padding: -20px;
+}
+.infoBar {
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1f122c;
+    height: 56px;
+    width: 100%;
+    border-top: 1px solid #5c2a65;
+    border-bottom: 1px solid #5c2a65;
+  }
+  .loading img{
+    width: 6em;
+  }
+  .leftInnerContainer {
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    color: white;
+  }
+  
+  
+  .onlineIcon {
+    margin-right: 5%;
+  }
+  .loading{
+    text-align: center;
+  }
+  .messages {
+    padding: 5% 0;
+    overflow: auto;
+    flex: auto;
+    background-color: white;
+    height: calc(100vh - 63px - 54px - 150px - 96px);
+  }
+
+  .form {
+    display: flex;
+    height: 50px;
+    border-top: 1px solid #D3D3D3;
+  }
+  
+  .typeMessage {
+    border: none;
+    padding: 15px;
+    width: 93%;
+    font-size: 15px;
+    height: 10px;
+    background: white;
+    margin: 10px;
+    border-radius: 10px;
+
+  }
+
+  input:focus, textarea:focus, select:focus{
+    outline: none;
+  }
+  
+  .sendButton {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #582279;
+    display: inline-block;
+    border: none;
+    margin-top: 10px;
+    border-radius: 50%;
+    width: 41px;
+  }
+  @media only screen and (max-width: 920px)  {
+    
+    .messages{
+      height: calc(100vh - 63px - 54px - 150px - 6px);
+    }
+    
+  }
+  @media only screen and (max-width: 770px)  {
+    
+    .messages{
+      height: calc(100vh - 63px - 54px - 150px + 30px);
+    }
+    
+  }
+  @media only screen and (max-width: 400px)  {
+    
+    .messages{
+      height: calc(100vh - 63px - 54px - 150px + 55px);
+    }
+    
+  }

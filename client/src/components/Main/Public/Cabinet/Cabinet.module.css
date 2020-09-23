@@ -1,0 +1,263 @@
+.messageBox {
+  background: #F3F3F3;
+  border-radius: 20px;
+  padding: 5px 20px;
+  color: white;
+  display: inline-block;
+  max-width: 80%;
+}
+
+.messageText {
+  width: 100%;
+  letter-spacing: 0;
+  float: left;
+  font-size: 1.1em;
+  word-wrap: break-word;
+}
+.wrap{
+  padding: 10px;
+  border-top: 1px solid #7575754d;
+}
+.container{
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 156px 1fr 36px;
+}
+.remove{
+  text-align: right;
+}
+.data{
+  display: flex;
+  justify-content: space-between;
+}
+.label{
+  margin-right: 10px;
+  display: inline-block;
+}
+.messageText img {
+  vertical-align: middle;
+}
+.remove a{
+  cursor: pointer;
+}
+.messageContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 5%;
+  margin-top: 3px;
+}
+
+.sentText {
+  display: flex;
+  align-items: center;
+  font-family: Helvetica;
+  color: #828282;
+  letter-spacing: 0.3px;
+}
+
+.pl_10 {
+  padding-left: 10px;
+}
+
+.pr_10 {
+  padding-right: 10px;
+}
+
+.justifyStart {
+  justify-content: flex-start;
+}
+
+.justifyEnd {
+  justify-content: flex-end;
+}
+
+.colorWhite {
+  color: white;
+}
+
+.colorDark {
+  color: #353535;
+}
+
+.backgroundBlue {
+  background: #582279;
+}
+
+.backgroundLight {
+  background: #F3F3F3;
+}
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 5em;
+  width: 20em;
+  /* width: 100%; 
+  height: 100%;  */
+  /* overflow: auto;  */
+  /* background-color: rgba(0,0,0,0.4); */
+  text-align: center;
+}
+.head_remove{
+  font-size: 0.7em;
+}
+/* Modal Content/Box */
+.modal_content {
+  background-color: #fefefe;
+  /* margin: 15% auto;  */
+  font-size: 20px;
+  border: 1px solid #888;
+  /* width: 30%;  */
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  border-radius: 10px;
+}
+.modal_body{
+  padding: 0.5em;
+}
+.modal_body p{
+  margin: 0.5em;
+}
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #757575;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@keyframes animatetop {
+  from {transform: translateY(-300px); opacity:0}
+  to {margin-bottom: 0; opacity:1}
+}
+.attention{
+  text-align: center;
+  color: #db3b3b;
+  font-family: 'Montserrat';
+  margin-top: 30px;
+}
+.header_modal{
+  background-color: #fafafa;
+  color: rgba(0,0,0,.38);
+  display: block;
+  height: 56px;
+  line-height: 56px;
+  min-height: 56px;
+  overflow-y: hidden;
+  padding-right: 8px;
+  position: inherit;
+  border-radius: 10px 10px 0 0;
+  font-size: 20px;
+  letter-spacing: .005em;
+  box-sizing: border-box;
+  font-weight: 400;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 64px;
+  max-height: 64px;
+  padding: 0 16px;
+  margin: 0;
+  border-bottom: 1px solid #a5a5a561;
+}
+.modal_footer{
+  background-color: #fafafa;
+  color: rgba(0,0,0,.38);
+  display: block;
+  height: 56px;
+  line-height: 56px;
+  min-height: 56px;
+  overflow-y: hidden;
+  padding-right: 8px;
+  position: inherit;
+  border-radius: 10px 10px 0 0;
+  font-size: 20px;
+  letter-spacing: .005em;
+  box-sizing: border-box;
+  font-weight: 400;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 64px;
+  max-height: 64px;
+  padding: 3px 16px 0;
+  border-radius: 0 0 10px 10px;
+  margin: 0;
+  border-top: 1px solid #a5a5a561;
+  text-align: right;
+}
+@media only screen and (max-width: 920px)  {
+  .modal_content {
+    width: 90%;
+  }
+}
+.empty{
+  display: block;
+  text-align: center;
+}
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.buttons button{
+  padding: 10px;
+  cursor: pointer;
+}
+.cancel_button{
+  background: none;
+  border: none;
+  color: #666;
+
+}
+.empty{
+  font-size: 1.5em;
+}
+.remove_button{
+  color: #fff;
+  background-color: #db3b3b;
+  border-radius: 8px;
+  box-shadow: none;
+  border: none;
+
+}
+@media only screen and (max-width: 1120px)  {
+  .container{
+    grid-template-areas: 
+    "header remove"
+    "data remove";
+    grid-template-columns: 1fr 30px;
+    text-align: center;
+    font-size: 1.2em;
+  }
+.position{
+  margin: 0 auto;
+  border-top: 1px solid #a5a5a561;
+  width: fit-content;
+  margin-bottom: 5px;
+}
+.droptop{
+  border-top:0;
+}
+  .header{
+    grid-area: header;
+    margin-bottom: 1em;
+  }
+  .remove{
+  grid-area: remove;
+
+  }
+  .data{
+  grid-area: data;
+    
+    display: block;
+  }
+}

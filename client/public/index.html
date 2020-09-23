@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <meta property="og:title" content="Комплексное продвижение в интернете - ChaseBox">
+  <meta property="og:site_name" content="ChaseBox">
+  <meta property="og:url" content="ru.chase-box.com">
+  <meta property="og:description" content="Все виды интернет продвижения на одной платформе с отборными специалистами за разумную цену">
+  <meta property="og:image" content="http://ru.chase-box.com/static/media/gregory.28a0af2b.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Комплексное продвижение в интернете" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <!-- <link rel="stylesheet" type="text/css" href="file:///C:/Users/sntt/Desktop/project%20%E2%80%94%20finallyrich/fontawesome-free-5.12.1-web/css/all.css"> -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <style type="text/css">
+    body {
+      margin: 0;
+    }
+
+    .preload_logo {
+      transform: translate(0, 40vh);
+      display: inline-block;
+      text-align: center;
+      width: calc(100vw - (100vw - 129px));
+      height: calc(100vh - (100vh - 72px));
+      padding: 0;
+      margin: 0;
+    }
+
+    .ipl-progress-indicator.available {
+      opacity: 0
+    }
+
+    .ipl-progress-indicator {
+      align-items: center;
+      text-align: center;
+      background-color: #1b1b1b;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      opacity: 1;
+      pointer-events: none;
+      -webkit-transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      -moz-transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      z-index: 9999
+    }
+
+    .insp-logo-frame {
+      display: flex;
+      justify-content: center;
+      -webkit-animation: fadein 436ms;
+      -moz-animation: fadein 436ms;
+      animation: fadein 436ms;
+      height: 98%
+    }
+
+    .insp-logo-frame-img {
+      transform: translate(0, -50%);
+      align-self: center;
+      border-radius: 50%
+    }
+
+    .ipl-progress-indicator-head {
+      background-color: #f6c6fc;
+      height: 10px;
+      overflow: hidden;
+      position: relative
+    }
+
+    .ipl-progress-indicator .first-indicator,
+    .ipl-progress-indicator .second-indicator {
+      background-color: #65058b;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      position: absolute;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      transform-origin: left center;
+      -webkit-transform: scaleX(0);
+      -moz-transform: scaleX(0);
+      transform: scaleX(0)
+    }
+
+    .ipl-progress-indicator .first-indicator {
+      -webkit-animation: first-indicator 2s linear infinite;
+      -moz-animation: first-indicator 2s linear infinite;
+      animation: first-indicator 2s linear infinite
+    }
+
+    .ipl-progress-indicator .second-indicator {
+      -webkit-animation: second-indicator 2s linear infinite;
+      -moz-animation: second-indicator 2s linear infinite;
+      animation: second-indicator 2s linear infinite
+    }
+
+    .ipl-progress-indicator .insp-logo {
+      animation: App-logo-spin infinite 20s linear;
+      border-radius: 50%;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      align-self: center
+    }
+
+    @keyframes App-logo-spin {
+      from {
+        transform: rotate(0)
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @-moz-keyframes fadein {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes first-indicator {
+      0% {
+        transform: translate(0) scaleX(0)
+      }
+
+      25% {
+        transform: translate(0) scaleX(.5)
+      }
+
+      50% {
+        transform: translate(25%) scaleX(.75)
+      }
+
+      75% {
+        transform: translate(100%) scaleX(0)
+      }
+
+      100% {
+        transform: translate(100%) scaleX(0)
+      }
+    }
+
+    @keyframes second-indicator {
+      0% {
+        transform: translate(0) scaleX(0)
+      }
+
+      60% {
+        transform: translate(0) scaleX(0)
+      }
+
+      80% {
+        transform: translate(0) scaleX(.6)
+      }
+
+      100% {
+        transform: translate(100%) scaleX(.1)
+      }
+    }
+  </style>
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <script src="https://kit.fontawesome.com/13744e0be6.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap&subset=cyrillic"
+    rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://vk.com/js/api/openapi.js?166"></script>
+  <script src="https://vk.com/js/api/openapi.js?167" type="text/javascript"></script>
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+  </script>
+  <script src="https://static.yamoney.ru/checkout-js/v1/checkout.js"></script>
+
+  <!-- <script type='text/javascript'>window.webmoney.widgets().PWYW.create({"lang":"ru","data":{"paymentType":"card","amount":10,"amountReadonly":true,"purse":"R267132646081","desc":"Тестовый товар"},"style":{"title":"","titleNum":1}}).mount('wm-widget')</script> -->
+  <title>ChaseBox</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div class="ipl-progress-indicator" id="ipl-progress-indicator">
+    <div class="ipl-progress-indicator-head">
+      <div class="first-indicator"></div>
+      <div class="second-indicator"></div>
+    </div>
+    <div class="insp-logo-frame">
+      <img class="preload_logo" src="logo.svg" alt="">
+    </div>
+  </div>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <!-- <div id='button_card' style='width: 175px;height:44px;'></div>
+    <script type='text/javascript' src='https://merchant.webmoney.ru/conf/lib/widgets/wmApp.js?v=1.1'></script>
+  <script type='text/javascript'>
+
+  let go = 20.00;
+   window.webmoney.widgets().button.create({ lang: 'ru', data: { amount: go, purse: 'R267132646081', desc: 'тестовый товар' , paymentType: 'card' }, style: { theme: 'wm', showAmount: true } })
+     .on('paymentComplete', function (data) {
+     // your code
+       console.log(data)
+     })
+     .mount('button_card')
+  </script> -->
+</body>
+
+</html>

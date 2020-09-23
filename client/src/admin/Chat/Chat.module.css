@@ -1,0 +1,97 @@
+.chat{
+  display: grid;
+  grid-template-areas: 
+  "users dialog";
+  grid-template-columns: 3fr 9fr;
+
+
+}
+.dialog{
+    grid-area: dialog;
+    height: auto;
+}
+.users{
+  grid-area: users;
+  background-color: #fff;
+  border-right: 2px solid #D3D3D3;
+  border-left: 2px solid #D3D3D3;
+  border-bottom: 2px solid #D3D3D3;
+  border-top: 2px solid #D3D3D3;
+  height: calc(100vh - 180px);
+  overflow: auto;
+
+}
+.infoBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #191818;
+    border-radius: 4px 4px 0 0;
+    height: 60px;
+    width: 100%;
+  }
+  
+  .leftInnerContainer {
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    color: white;
+  }
+  
+  
+  .onlineIcon {
+    margin-right: 5%;
+  }
+  
+  .messages {
+    padding: 5% 0;
+    overflow: auto;
+    flex: auto;
+    background-color: white;
+    height: calc(100vh - 290px - 6vw);
+
+    
+  }
+  .loading{
+    text-align: center;
+  }
+  .form {
+    display: flex;
+    height: 50px;
+    border-top: 2px solid #D3D3D3;
+  }
+  
+  .typeMessage {
+    border: none;
+    border-radius: 0;
+    padding: 15px;
+    width: 90%;
+    font-size: 15px;
+    background: white;
+
+  }
+  
+  input:focus, textarea:focus, select:focus{
+    outline: none;
+  }
+  
+  .sendButton {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #8d31c1;
+    display: inline-block;
+    border: none;
+    width: 10%;
+  }
+
+  @media only screen and (max-width: 700px)  {
+    .chat{
+      grid-template-areas: 
+      "dialog"
+      "users";
+      grid-template-columns: 1fr;
+      grid-template-rows: 500px 3fr;
+    }
+  }

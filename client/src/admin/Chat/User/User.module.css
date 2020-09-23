@@ -1,0 +1,15 @@
+.user{
+  padding: 17.5px 15px;
+  background-color: #fff;
+  display: block;
+  border-bottom: 2px solid #D3D3D3;
+  cursor: pointer;
+  color: #000;
+  text-decoration: none;
+}
+.active{
+  background-color: #D3D3D3;
+}
+.notification{
+  background-color: #000;
+}
