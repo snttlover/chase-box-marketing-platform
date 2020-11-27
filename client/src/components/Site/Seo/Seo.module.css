@@ -25,6 +25,13 @@
 .question:hover{
     color: #333;
 }
+.error{
+    border-bottom: 2px solid #f13838 !important;
+    transition: .3s all;
+}
+.equal{
+    padding-right: 1em;
+}
 .line{
     background-color: #5c2a65;
     bottom: -1px;
@@ -164,7 +171,7 @@
 .input input{
     font-size: 15px;
     padding: 5px;
-    color: #666;
+    color: #000;
     width: 90%;
     outline: none;
     /* max-width: 600px; */
@@ -189,8 +196,40 @@
     transition: background-color .3s cubic-bezier(0.4,0.0,0.2,1);
 
 }
+.calculator{
+    padding: 2em;
+}
+.calcWrap{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+}
+.supPrice{
+    width: 100%;
+}
+.sum{
+    font-size: 1.2em;
+}
+.center{
+    text-align: center;
+    font-size: 1.5em;
+    width: 100%;
+}
+.calcWrap span{
+    font-weight: 600;    
+    white-space: nowrap;
+}
 .button button:hover{
     background-color: #6e2696;
+}
+.equalWrap{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }
 
 @media only screen and (max-width: 730px)  {
@@ -217,5 +256,8 @@
     .table_container{
         min-width: 290px;
         width: 100%;
+    }
+    .sum{
+        font-size: 1.5em;
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './Seo.module.css'
 import { NavLink } from "react-router-dom";
 import { BrowserRouter, Route } from "react-router-dom";
@@ -9,12 +9,10 @@ import { seoTextActionCreator } from './../../../redux/Site-reducer'
 import { createPositionActionCreator } from './../../../redux/Table-reducer'
 import { openInfoModalActionCreator } from './../../../redux/Info-reducer'
 import { typeActionCreator } from './../../../redux/Info-reducer'
-import {addSumActionCreator} from './../../../redux/Table-reducer'
+import { addSumActionCreator } from './../../../redux/Table-reducer'
 
 import Info from './../../Info/Info'
 const Seo = (props) => {
-    const cost = 9990;
-
     let link = React.createRef();
     let number = React.createRef();
     let content = React.createRef();
@@ -27,6 +25,62 @@ const Seo = (props) => {
     let contentText = ""
     let timeText = ""
     let budjetText = ""
+
+    let disabled;
+    let buttonText;
+    let errors = {
+        link: false,
+        number: false,
+        content: false,
+        time: false,
+        budjet: false
+
+    }
+    let [touched, setTouched] = useState({
+        link: '',
+        number: '',
+        content: '',
+        time: '',
+        budjet: ''
+    })
+    const validate = (link, number, content, time, budjet) => {
+
+        return {
+            link: link.length === 0,
+            number: number.length === 0,
+            content: false,
+            time: time < 1,
+            budjet: budjet < 7000,
+
+        }
+    }
+    errors = validate(props.seo.link,
+        props.seo.number,
+        props.seo.content,
+        props.seo.time,
+        props.seo.budjet)
+
+
+    const handleBlur = (field) => (evt) => {
+
+        setTouched({
+            ...touched,
+            [field]: true
+        })
+    }
+    const shouldMarkError = (field) => {
+
+        const hasError = errors[field]
+        const shouldShow = touched[field]
+        return hasError ? shouldShow : false;
+    }
+
+    disabled = !Object.keys(errors).some(x => errors[x]) ? 'nodisabled' : 'disabled';
+    buttonText = !Object.keys(errors).some(x => errors[x]) ? 'Подтвердить' : 'Заполните все поля';
+
+    const cost = 9990;
+
+
 
 
 
@@ -52,8 +106,7 @@ const Seo = (props) => {
     let typeInfo = (type) => {
         props.dispatch(typeActionCreator(type))
     }
-    let disabled;
-    let buttonText;
+
     if (props.seo.link != "" && props.seo.number != "" && parseInt(props.seo.time) >= 1 && parseInt(props.seo.budjet) >= 7000) {
         disabled = "nodisabled"
         buttonText = "Подтвердить"
@@ -61,22 +114,28 @@ const Seo = (props) => {
         disabled = "disabled"
         buttonText = "Заполните все поля"
     }
+
     let createPosition = () => {
+
+        for (let key in touched) {
+            touched[key] = false
+          }
+
         linkText = link.current.value;
 
         numberText = number.current.value;
         contentText = content.current.value;
         timeText = time.current.value;
-        budjetText = parseInt(budjet.current.value)*parseInt(time.current.value);
+        budjetText = parseInt(budjet.current.value) * parseInt(time.current.value);
 
 
 
         let id = props.table.elementsData.length;
         let section = props.seo.section;
         let name = props.name;
-        props.dispatch(createPositionActionCreator({ id: id, budjet: budjetText, time: timeText, section: section, name: name, link: linkText, positions: [numberText, contentText, "Месяцев: " + timeText, "Бюджет: ₽"+budjetText] }))
-        props.dispatch(addSumActionCreator(parseInt(budjetText)+parseInt(cost*parseInt(time.current.value))))
-        
+        props.dispatch(createPositionActionCreator({ id: id, budjet: budjetText, time: timeText, section: section, name: name, link: linkText, positions: [numberText, contentText, "Месяцев: " + timeText, "Бюджет: ₽" + budjetText] }))
+        props.dispatch(addSumActionCreator(parseInt(budjetText) + parseInt(cost * parseInt(time.current.value))))
+
         props.seo.link = ""
         props.seo.number = ""
         props.seo.content = ""
@@ -129,7 +188,9 @@ const Seo = (props) => {
                                             value={props.seo.link}
                                             onChange={onTextChange}
                                             ref={link}
-                                            placeholder="Пример: https://example.com" />
+                                            placeholder="Пример: https://example.com"
+                                            onBlur={handleBlur('link')}
+                                            className={shouldMarkError('link') ? s.error : ''} />
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +204,10 @@ const Seo = (props) => {
                                             value={props.seo.number}
                                             onChange={onTextChange}
                                             ref={number}
-                                            placeholder="Пример: Косметика" />
+                                            placeholder="Пример: Косметика"
+                                            onBlur={handleBlur('number')}
+                                            className={shouldMarkError('number') ? s.error : ''}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -153,12 +217,15 @@ const Seo = (props) => {
                                 </div>
                                 <div className={s.input_block}>
                                     <div className={s.input}>
-                                    <input name="budjet"
+                                        <input name="budjet"
                                             type="number"
                                             min="7000"
                                             value={props.seo.budjet}
                                             onChange={onTextChange}
-                                            ref={budjet} />
+                                            ref={budjet}
+                                            onBlur={handleBlur('budjet')}
+                                            className={shouldMarkError('budjet') ? s.error : ''}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +241,9 @@ const Seo = (props) => {
                                             max="1000"
                                             value={props.seo.time}
                                             onChange={onTextChange}
-                                            ref={time} />
+                                            ref={time}
+                                            onBlur={handleBlur('time')}
+                                            className={shouldMarkError('time') ? s.error : ''} />
                                     </div>
                                 </div>
                             </div>
@@ -187,9 +256,13 @@ const Seo = (props) => {
                                         <input name="content"
                                             value={props.seo.content}
                                             onChange={onTextChange}
-                                            ref={content} />
+                                            ref={content}
+                                            onBlur={handleBlur('content')} />
                                     </div>
                                 </div>
+                            </div>
+                            <div className={s.calculator}>
+                                <span className={s.calcWrap}><div className={s.supPrice}>Цена услуги: <span>{cost}</span> x <span>{props.seo.time ? props.seo.time : 0}</span> <br></br> <br></br> Бюджет: <span>{props.seo.budjet ? props.seo.budjet : 0}</span> x <span>{props.seo.time ? props.seo.time : 0}</span></div> <div className={s.equalWrap}><span className={s.equal}>Подытог: </span><span className={s.sum}>{props.seo.time && props.seo.budjet ? (parseInt(props.seo.budjet) * parseInt(props.seo.time) + parseInt(cost * parseInt(props.seo.time))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " ₽" : `\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0`}</span></div></span>
                             </div>
                             <div className={s.button}>
                                 <button className={`${s.submit_btn} ${disabled}`} onClick={() => {

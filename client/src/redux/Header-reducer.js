@@ -24,7 +24,6 @@ export const headerReducer = (state = initialState, action) => {
             
         }break;
         case SHOW_SIDEBAR: {
-            
             state.header.showSidebar = !state.header.showSidebar
         }break;
         case ACTIVE_POSITIONS: {

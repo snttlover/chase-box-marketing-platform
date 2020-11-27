@@ -26,7 +26,7 @@ import InstagramTargeting from './components/Smm/Instagram/Instagram-targeting';
 import Twitter from './components/Smm/Twitter/Twitter';
 import TwitterContext from './components/Smm/Twitter/Twitter-context';
 import TwitterTargeting from './components/Smm/Twitter/Twitter-targeting';
-
+import { YMInitializer } from 'react-yandex-metrika';
 import Vk from './components/Smm/Vk/Vk';
 import VkContext from './components/Smm/Vk/Vk-context';
 import VkTargeting from './components/Smm/Vk/Vk-targeting';
@@ -360,6 +360,7 @@ function App(props) {
 
                   </div>
                 </Switch>
+                <YMInitializer options={{webvisor: true}} accounts={[68216491]} />
               </div>
             </Router>
           </AuthProvider>
@@ -377,6 +378,7 @@ function App(props) {
                     <Redirect from='*' to='/login' />
                   </div>
                 </Switch>
+                <YMInitializer options={{webvisor: true}} accounts={[68216491]} />
               </div>
             </Router>
           </AuthProvider>

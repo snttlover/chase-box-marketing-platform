@@ -164,42 +164,58 @@ const Header = (props) => {
                             <span className={s.label}>{props.state.name} </span>
                         </a>
                     </div> */}
-                    <div className={s.ref}>
-                        <div className={s.ref_wrap}>
-                            <a onClick={() => {
-                                openInfo()
-                                typeInfo("ref")
-                            }}>
-                                Справка
+                    <div className={s.col}>
+                        <div className={s.phone}><i class="fas fa-phone"></i>+7 (912) 807-95-04</div>
+                        <NavLink to="/main/support" className={s.support_link}>Поддержка</NavLink>
+                    </div>
+                    <div className={`${s.col} ${s.nobackground}`}>
+                        <div className={s.ref}>
+                            <div className={s.ref_wrap}>
+                                <a onClick={() => {
+                                    openInfo()
+                                    typeInfo("ref")
+                                }}>
+                                    Справка
                             </a>
+                            </div>
                         </div>
-                    </div>
-                    <div className={s.chat} >
-                        <div className={s.chat_wrap}>
+                        {/* <div className={s.chat} >
+                            <div className={s.chat_wrap}>
 
-                            <NavLink to="/main/support">
-                                <div className={s.notification} style={{ display: notification ? "inline-block" : "none" }}></div>
-                                <i className="fas fa-comment"></i>
-                            </NavLink>
+                                <NavLink to="/main/support">
+                                    <div className={s.notification} style={{ display: notification ? "inline-block" : "none" }}></div>
+                                    <i className="fas fa-comment"></i>
+                                </NavLink>
 
 
-                        </div>
-                    </div>
-                    <div className={s.dropdown} id={s.prof}>
-                        <input type="checkbox" />
+                            </div>
+                        </div> */}
+                        <div className={s.dropdown} id={s.prof}>
+                            <input type="checkbox" />
 
-                        <span className={s.label}>{props.state.name} </span>
-                        <img src={ava} className={s.ava} />
+                            <span className={s.label}>{props.state.name} </span>
+                            <img src={ava} className={s.ava} />
 
-                        <div className={s.dropdown_content} id={s.prof_cont}>
-                            <div className={s.container_drop}>
-                                <div className={s.image_pref}><img src={ava} /></div>
-                                <div className={s.pref_container}>
-                                    <div className={s.sub_pref}>{props.state.name} </div>
-                                    <NavLink to='/' className={s.dropElement} onClick={logOut} >
-                                        <i className="fas fa-sign-out-alt"></i>
-                                        Выйти
-                                    </NavLink>
+                            <div className={s.dropdown_content} id={s.prof_cont}>
+                                <div className={s.container_drop}>
+                                    <div className={s.image_pref}><img src={ava} /></div>
+                                    <div className={s.pref_container}>
+                                        <div className={s.sub_pref}>{props.state.name} </div>
+                                        <NavLink to='/' className={s.dropElement} onClick={logOut} >
+                                            <i className="fas fa-sign-out-alt"></i>
+                                            Выйти
+                                        </NavLink>
+                                    </div>
+                                    <div className={`${s.ref} ${s.mobile_ref}`}>
+                                        <div className={s.ref_wrap}>
+                                            <a onClick={() => {
+                                                openInfo()
+                                                typeInfo("ref")
+                                            }}>
+                                                Справка
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

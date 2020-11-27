@@ -12,7 +12,7 @@ import { authReducer } from "./Auth-reducer";
 import { publicReducer } from "./Public-reducer";
 import { infoReducer } from "./Info-reducer";
 import { campaignsReducer } from "./Campaigns-reducer";
-
+import { reducer as formReducer} from 'redux-form'
 
 
 
@@ -29,7 +29,8 @@ let reducers = combineReducers({
     auth: authReducer,
     public: publicReducer,
     info: infoReducer,
-    campaigns: campaignsReducer
+    campaigns: campaignsReducer,
+    form: formReducer
 });
 let store = createStore(reducers);
 

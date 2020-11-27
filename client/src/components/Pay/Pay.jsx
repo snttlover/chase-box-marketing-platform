@@ -22,7 +22,7 @@ import { resetSumActionCreator } from './../../redux/Table-reducer'
 
 import app from './../../base'
 import { auth } from 'firebase';
-import { Button, Header, Icon, Modal } from 'react-bootstrap'
+// import { Button, Header, Icon, Modal } from 'react-bootstrap'
 import { openModalActionCreator } from './../../redux/Pay-reducer'
 import { closeModalActionCreator } from './../../redux/Pay-reducer'
 

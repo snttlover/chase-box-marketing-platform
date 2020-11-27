@@ -83,6 +83,10 @@ input::-webkit-inner-spin-button {
 iframe{
   text-align: center;
 }
+.MuiDrawer-paperAnchorLeft{
+  background-color: #1f122c;
+
+}
 .disabled {
   pointer-events: none; /* делаем ссылку некликабельной */
   cursor: default !important; /* цвет текста для нективной ссылки */

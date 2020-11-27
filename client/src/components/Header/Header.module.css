@@ -20,6 +20,14 @@ nav{
     vertical-align: top;
     text-align: center;
 }
+
+.mobile_ref{
+    display: none !important;
+    padding-top: 1em;
+}
+.sideMenu{
+    background-color: #1f122c;
+}
 .ref{
     display: flex;
     text-align: center;
@@ -83,7 +91,44 @@ nav ul{
     float: right;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+}
+.phone{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.5em 1em 0.5em 1em;
+    white-space: pre;
+}
+.col{
+    background: white;
+    /* padding: 0.5em 2em; */
+    border-radius: 23px;
+    box-shadow: 0 2px 5px #90909026;
+}
+.phone i{
+    color: #8d31c1;
+    padding-right: 0.5em;
+}
+.support_link{
+    padding: 0.5em 1em 0.5em 1em;
+    vertical-align: middle;
+    /* line-height: 16px; */
+    background-color: #8d31c1;
+    border-radius: 0 20px 20px 0;
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: .3s all;
+}
+.nobackground{
+    background: none;
+    box-shadow: none;
+}
+.support_link:hover {
+    background-color: #6e2696;
+}
+.col{
+    display: flex;
 }
 .chat{
     display: flex;
@@ -307,12 +352,47 @@ nav ul{
 /* .dropdown:hover{
 display: block !important;
 }     */
+@media only screen and (max-width: 995px)  {
+    .dropdown img{
+        display: none;
+    }
+}
+@media only screen and (max-width: 940px) {
+    .dropdown img{
+        display: none;
+    }
+    header{
+        padding: 5px 0;
+    }
+}
 @media only screen and (max-width: 920px)  {
     header{
         display: contents;
         background: #fff !important;
+
+    }
+    header nav{
+        padding: 5px 24px 5px 70px;
+
     }
 }
+@media only screen and (max-width: 700px)  {
+    .label{
+        display: none;
+    }
+    .dropdown img{
+        display: block;
+    }
+}
+@media only screen and (max-width: 560px)  {
+    .support_link{
+        display: none;
+    }
+    .ref{
+        margin-right: 0;
+    }
+}
+
 @media only screen and (max-width: 500px)  {
     nav ul{
         display: none;
@@ -329,6 +409,12 @@ display: block !important;
 @media only screen and (max-width: 420px)  {
     .label{
         display: none;
+    }
+    .ref{
+        display: none;
+    }
+    .mobile_ref{
+        display: block !important;
     }
 }
 @media only screen and (max-width: 385px)  {
