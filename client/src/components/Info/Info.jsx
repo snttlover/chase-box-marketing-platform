@@ -45,29 +45,7 @@ import box7 from './../../img/box7.jpg'
 // import { closeRemoveModalActionCreator } from './../../../../redux/Public-reducer'
 import { closeInfoModalActionCreator } from './../../redux/Info-reducer'
 const Info = (props) => {
-  // let isSentByCurrentUser;
 
-  // if(props.sender==="current") {
-  //   isSentByCurrentUser = true;
-  // }
-
-  // let remove;
-  // if (props.cabinets.length <= 1) {
-  //   remove = "block"
-  // } else remove = "none";
-
-
-  // let removeInfo = (id) => {
-  //   props.dispatch(removeInfoActionCreator(id))
-  //   app.database().ref('users/' + app.auth().currentUser.email.split('.').join("") + '/cabinets')
-  //     .set(props.cabinets)
-  //   // app.database().ref('users/' + app.auth().currentUser.email.split('.').join("") + '/cabinets').remove(props.id);
-
-  // }
-  // let open = async (id) => {
-
-  //   await props.dispatch(openRemoveModalActionCreator(id))
-  // }
   let close = async () => {
     await props.dispatch(closeInfoModalActionCreator())
   }

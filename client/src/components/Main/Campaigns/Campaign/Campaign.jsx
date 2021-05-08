@@ -92,33 +92,6 @@ const Campaign = (props) => {
 
   }
 
-  // if (actStatus) {
-  //   
-  //   props.dispatch(activePositionsActionCreator())
-  //   app.database().ref('users/' + app.auth().currentUser.email.split('.').join("") + '/activePositions').set(props.header.activePositions)
-
-  // }
-
-  // let isSentByCurrentUser;
-
-  // if(props.sender==="current") {
-  //   isSentByCurrentUser = true;
-  // }
-
-  // let remove;
-  // if (props.cabinets.length <= 1) {
-  //   remove = "block"
-  // } else remove = "none";
-
-
-
-  // let open = async (id) => {
-
-  //   await props.dispatch(openRemoveModalActionCreator(id))
-  // }
-  // let close = async () => {
-  //   await props.dispatch(closeRemoveModalActionCreator())
-  // }
   let open = () => {
     debugger
     props.dispatch(openModalActionCreator(props.id))

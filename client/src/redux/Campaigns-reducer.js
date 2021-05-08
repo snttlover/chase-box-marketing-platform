@@ -31,6 +31,7 @@ export const campaignsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case CAMP_TEXT: {
+            debugger
             state.budjet = action.newText.budjet
             state.time = action.newText.time
             state.num = action.newText.num

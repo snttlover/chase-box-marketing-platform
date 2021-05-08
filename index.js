@@ -18,58 +18,58 @@ if (process.env.NODE_ENV === 'production') {
     app.get('*', (req, res) => { res.sendfile(path.join(__dirname, 'client', 'build', 'index.html')); })
 }
 
-// const token = '1192745913:AAHEjdRjbMLJI6g18IGZjc6AYrloeJjIfk0';
+const token = '1192745913:AAHEjdRjbMLJI6g18IGZjc6AYrloeJjIfk0';
 
-// const bot = new TelegramBot(token, { polling: true });
-// const chatId = 407242804;
+const bot = new TelegramBot(token, { polling: true });
+const chatId = 407242804;
 
-// app.post('/api/form', (req, res) => {
-//     if (req.body.format === "work") {
+app.post('/api/form', (req, res) => {
+    if (req.body.format === "work") {
 
-//         bot.sendMessage(chatId, `Новый заказ \n ${req.body.data}`);
+        bot.sendMessage(chatId, `Новый заказ \n ${req.body.data}`);
 
-//     }
-//     if (req.body.format === "message") {
+    }
+    if (req.body.format === "message") {
 
-//         bot.sendMessage(chatId, `Новое сообщение \n ${req.body.data}`);
+        bot.sendMessage(chatId, `Новое сообщение \n ${req.body.data}`);
 
-//     }
-//     if (req.body.format === "feedback") {
-//         bot.sendMessage(chatId, `Фидбек \n ${req.body.data}`);
+    }
+    if (req.body.format === "feedback") {
+        bot.sendMessage(chatId, `Фидбек \n ${req.body.data}`);
 
-//     }
-//     if (req.body.format === "breef") {
-//         bot.sendMessage(chatId, `Бриф \n ${req.body.data}`);
+    }
+    if (req.body.format === "breef") {
+        bot.sendMessage(chatId, `Бриф \n ${req.body.data}`);
 
-//     }
-//     if (req.body.format === "messageBase") {
-//         nodemailer.createTestAccount((err, account) => {
-//             const transporter = nodemailer.createTransport({
-//                 host: 'smtp.mail.ru',
-//                 port: '465',
-//                 auth: {
-//                     user: 'sendallchasebox@mail.ru',
-//                     pass: 'YGuAA)yier73'
-//                 }
-//             });
-//             let mailOptions = {
+    }
+    if (req.body.format === "messageBase") {
+        nodemailer.createTestAccount((err, account) => {
+            const transporter = nodemailer.createTransport({
+                host: 'smtp.mail.ru',
+                port: '465',
+                auth: {
+                    user: 'sendallchasebox@mail.ru',
+                    pass: 'YGuAA)yier73'
+                }
+            });
+            let mailOptions = {
 
-//                 from: 'sendallchasebox@mail.ru',
-//                 to: req.body.email,
-//                 subject: 'ChaseBox-новое сообщение',
-//                 text: req.body.data
+                from: 'sendallchasebox@mail.ru',
+                to: req.body.email,
+                subject: 'ChaseBox-новое сообщение',
+                text: req.body.data
 
-//             }
-//             transporter.sendMail(mailOptions, (err, info) => {
-//                 if (err) {
-//                     return console.log(err)
-//                 }
-//                 console.log('Message sent: %s', info.message)
-//             })
-//         })
-//     }
+            }
+            transporter.sendMail(mailOptions, (err, info) => {
+                if (err) {
+                    return console.log(err)
+                }
+                console.log('Message sent: %s', info.message)
+            })
+        })
+    }
 
-// })
+})
 
 
 app.post('/payment', (req, res) => {

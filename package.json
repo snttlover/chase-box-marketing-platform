@@ -6,7 +6,7 @@
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "cross-env NODE_ENV=production node index.js",
-    "server": "nodemon indes.js",
+    "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
     "client:build": "npm run build --prefix client",

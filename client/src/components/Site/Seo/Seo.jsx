@@ -12,6 +12,7 @@ import { typeActionCreator } from './../../../redux/Info-reducer'
 import { addSumActionCreator } from './../../../redux/Table-reducer'
 
 import Info from './../../Info/Info'
+import SeoDOM from './SeoDOM';
 const Seo = (props) => {
     let link = React.createRef();
     let number = React.createRef();
@@ -148,144 +149,12 @@ const Seo = (props) => {
 
 
     return (
-        <div id={s.seo}>
-            <Info showRemoveModal={props.info.showModal} dispatch={props.dispatch} type={props.info.type} />
-
-            <div className={s.feature}>
-                <div className={s.feature_bar}>
-                    <div className={s.feature_wrap}>
-                        <div className={s.feature_text}>
-                            SEO-оптимизация
-                            <a className={`${s.question} ${s.lil_question}`} onClick={() => {
-                                openInfo()
-                                typeInfo("seo")
-                            }}>
-                                <i className="far fa-question-circle"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className={s.line}></div>
-
-            </div>
-            <div className={s.form}>
-
-                <div className={s.col}>
-                    <div className={s.header}>
-                        <div className={s.header_text}>
-                            Заполните поля ниже, все остальное настроят наши специалисты по SEO-оптимизации
-                        </div>
-                    </div>
-                    <div className={s.table_wrap}>
-                        <div className={s.table_container}>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Ссылка на сайт:</div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="link"
-                                            value={props.seo.link}
-                                            onChange={onTextChange}
-                                            ref={link}
-                                            placeholder="Пример: https://example.com"
-                                            onBlur={handleBlur('link')}
-                                            className={shouldMarkError('link') ? s.error : ''} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Тематика ресурса: </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="number"
-                                            value={props.seo.number}
-                                            onChange={onTextChange}
-                                            ref={number}
-                                            placeholder="Пример: Косметика"
-                                            onBlur={handleBlur('number')}
-                                            className={shouldMarkError('number') ? s.error : ''}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Бюджет (минимум ₽ 7000): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="budjet"
-                                            type="number"
-                                            min="7000"
-                                            value={props.seo.budjet}
-                                            onChange={onTextChange}
-                                            ref={budjet}
-                                            onBlur={handleBlur('budjet')}
-                                            className={shouldMarkError('budjet') ? s.error : ''}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Продолжительность (в месяцах): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="time"
-                                            type="number"
-                                            min="1"
-                                            max="1000"
-                                            value={props.seo.time}
-                                            onChange={onTextChange}
-                                            ref={time}
-                                            onBlur={handleBlur('time')}
-                                            className={shouldMarkError('time') ? s.error : ''} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Дополнительные сведения: </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="content"
-                                            value={props.seo.content}
-                                            onChange={onTextChange}
-                                            ref={content}
-                                            onBlur={handleBlur('content')} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.calculator}>
-                                <span className={s.calcWrap}><div className={s.supPrice}>Цена услуги: <span>{cost}</span> x <span>{props.seo.time ? props.seo.time : 0}</span> <br></br> <br></br> Бюджет: <span>{props.seo.budjet ? props.seo.budjet : 0}</span> x <span>{props.seo.time ? props.seo.time : 0}</span></div> <div className={s.equalWrap}><span className={s.equal}>Подытог: </span><span className={s.sum}>{props.seo.time && props.seo.budjet ? (parseInt(props.seo.budjet) * parseInt(props.seo.time) + parseInt(cost * parseInt(props.seo.time))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " ₽" : `\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0`}</span></div></span>
-                            </div>
-                            <div className={s.button}>
-                                <button className={`${s.submit_btn} ${disabled}`} onClick={() => {
-                                    createPosition()
-                                    openInfo()
-                                    typeInfo("position")
-                                }}>{buttonText}</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div className={s.col}>
-                    <Table table={props.table} dispatch={props.dispatch} header={props.header} button="Отправить" />
-                </div>
-            </div>
-            <Helmet>
-                <title>SEO-оптимизация - ChaseBox</title>
-                <meta name="SEO"
-                    content={props.seo.content} />
-            </Helmet>
-        </div>
-    );
+        <SeoDOM {...props} openInfo={openInfo} typeInfo={typeInfo} onTextChange={onTextChange}
+        link={link} handleBlur={handleBlur} shouldMarkError={shouldMarkError} onTextChange={onTextChange}
+        number={number} handleBlur={handleBlur} shouldMarkError={shouldMarkError} budjet={budjet}
+        time={time} content={content} cost={cost} disabled={disabled} createPosition={createPosition}
+        buttonText={buttonText}/>
+        );
 }
 
 export default Seo;

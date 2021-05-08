@@ -17,6 +17,7 @@ import { messageTextActionCreator } from './../../../redux/Main-reducer'
 import app from './../../../base'
 import { createMessageActionCreator } from './../../../redux/Main-reducer'
 import { createDialogActionCreator } from './../../../redux/Main-reducer'
+import SupportDOM from './SupportDOM';
 
 
 
@@ -128,10 +129,10 @@ const Support = (props) => {
         }
     }
     let sendForm = async (e) => {
-        
 
-        if ( message.current.value != "") {
-            
+
+        if (message.current.value != "") {
+
             let send = false;
             app.database().ref('users/' + app.auth().currentUser.email.split('.').join("") + '/send').on("value", (snapshot) => {
                 send = snapshot.val()
@@ -150,55 +151,14 @@ const Support = (props) => {
                     format: "message"
                 })
 
-            } 
+            }
         }
 
     }
 
     return (
-        <div className={s.support}>
-            <Info showRemoveModal={props.info.showModal} dispatch={props.dispatch} type={props.info.type} />
-
-            <div className={s.infoBar}>
-                <div className={s.leftInnerContainer}>
-                    <img className={s.onlineIcon} src={onlineIcon} alt="online icon" />
-                    <h3>Чат</h3>
-                </div>
-            </div>
-            <div className={s.messages}>
-                <div className="messages">
-                    <div className={`${s.loading} ${remove}`}><img src={loading} /></div>
-                    {messages}
-                </div>
-                <div ref={messagesEndRef} />
-
-            </div>
-            <div className={s.input}>
-                <div className={s.form}>
-                    <input
-                        className={s.typeMessage}
-                        type="text"
-                        value={props.support.messageText}
-                        placeholder="Введите сообщение..."
-                        ref={message}
-                        onChange={onTextChange}
-                        onKeyPress={handleButton}
-                    />
-                    <button className={s.sendButton}
-                        onClick={() => {
-
-                            setMessage()
-                            sendForm()
-                        }} onKeyDown={handleButton}><i class="fas fa-location-arrow"></i></button>
-
-                </div>
-            </div>
-            <Helmet>
-                <title>Чат - ChaseBox</title>
-                <meta name="Support"
-                    content={messages} />
-            </Helmet>
-        </div>
+        <SupportDOM {...props} remove={remove} messages={messages} messagesEndRef={messagesEndRef} message={message} onTextChange={onTextChange} 
+        handleButton={handleButton} setMessage={setMessage} sendForm={sendForm} />
     );
 }
 

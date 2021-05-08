@@ -568,7 +568,7 @@ const Main = (props) => {
                 <Route path="/smm/facebook" render={FacebookComponent} />
                 <Route exact path="/smm/facebook" render={FacebookTargetingComponent} />
 
-                <Route exact path="/smm/facebook/context" render={FacebookContextComponent} />
+                {/* <Route exact path="/smm/facebook/context" render={FacebookContextComponent} /> */}
                 <Route path="/smm/instagram" render={InstagramComponent} />
                 <Route exact path="/smm/instagram" render={InstagramTargetingComponent} />
                 <Route exact path="/smm/telegram" render={TelegramComponent} />

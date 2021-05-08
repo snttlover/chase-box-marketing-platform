@@ -12,6 +12,7 @@ import { typeActionCreator } from './../../../redux/Info-reducer'
 import {addSumActionCreator} from './../../../redux/Table-reducer'
 
 import Info from './../../Info/Info'
+import InstagramStoriesDOM from './InstagramStoriesDOM';
 const InstagramStories = (props) => {
     const cost = 3790;
 
@@ -96,148 +97,10 @@ const InstagramStories = (props) => {
 
 
     return (
-        <div>
-            <Info showRemoveModal={props.info.showModal} dispatch={props.dispatch} type={props.info.type} />
-
-            <div className={s.form}>
-
-                <div className={s.col}>
-                    <div className={s.header}>
-                        <div className={s.header_text}>
-                            Заполните поля ниже, все остальное настроят наши специалисты по настройке контекстной рекламы
-                        </div>
-                    </div>
-                    <div className={s.table_wrap}>
-                        <div className={s.table_container}>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Ссылка на профиль: </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <div className={s.part_link}>instagram.com/</div>
-                                        <input name="link"
-                                            value={props.instagram.link}
-                                            onChange={onTextChange}
-                                            ref={link}
-                                            placeholder="Пример: UCaMoBMdDfmBlZTtY7czITeA" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Город/населенный пункт (опционально): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="city"
-                                            value={props.instagram.city}
-                                            onChange={onTextChange}
-                                            ref={city}
-                                            placeholder="Пример: Москва" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Тематика профиля: </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="good"
-                                            value={props.instagram.good}
-                                            onChange={onTextChange}
-                                            ref={good}
-                                            placeholder="Пример: лайфстайл" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Дополнительные сведения (опционально): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="content"
-                                            value={props.instagram.content}
-                                            onChange={onTextChange}
-                                            ref={content} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Ссылка на диск с видео для сторис: 
-                                    <a className={s.question} onClick={() => {
-                                            openInfo()
-                                            typeInfo("disk")
-                                        }}>
-                                            <i className="far fa-question-circle"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="disk"
-                                            value={props.instagram.disk}
-                                            onChange={onTextChange}
-                                            ref={disk} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Бюджет (минимум ₽3000): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                    <input name="budjet"
-                                            type="number"
-                                            min="3000"
-                                            value={props.instagram.budjet}
-                                            onChange={onTextChange}
-                                            ref={budjet} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Продолжительность (в неделях): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                    <input name="time"
-                                            type="number"
-                                            min="1"
-                                            max="1000"
-                                            value={props.instagram.time}
-                                            onChange={onTextChange}
-                                            ref={time} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.button}>
-                                <button className={`${s.submit_btn} ${disabled}`} onClick={()=>{
-                                    createPosition()
-                                    openInfo()
-                                    typeInfo("position")
-                                    }}>{buttonText}</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div className={s.col}>
-                    <Table table={props.table} dispatch={props.dispatch} header={props.header} button="Отправить" />
-                </div>
-            </div>
-            <Helmet>
-                <title>Instagram сторис - ChaseBox</title>
-                <meta name="Context Instagram"
-                    content="Context Instagram" />
-            </Helmet>
-        </div>
-    );
+        <InstagramStoriesDOM {...props}onTextChange={onTextChange}  link={link} city={city} good={good}
+        content={content} openInfo={openInfo} typeInfo={typeInfo} disk={disk} budjet={budjet} disabled={disabled}
+        time={time} createPosition={createPosition} buttonText={buttonText} />
+        );
 }
 
 export default InstagramStories;

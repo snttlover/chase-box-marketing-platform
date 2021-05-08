@@ -12,6 +12,7 @@ import { typeActionCreator } from './../../../redux/Info-reducer'
 import {addSumActionCreator} from './../../../redux/Table-reducer'
 
 import Info from './../../Info/Info'
+import ContextDOM from './ContextDOM';
 const Context = (props) => {
     const cost = 3790;
 
@@ -93,165 +94,10 @@ const Context = (props) => {
 
 
     return (
-        <div id={s.context}>
-            <Info showRemoveModal={props.info.showModal} dispatch={props.dispatch} type={props.info.type} />
-
-            <div className={s.feature}>
-                <div className={s.feature_bar}>
-                    <div className={s.feature_wrap}>
-                        <div className={s.feature_text}>
-                            Контекстная реклама
-                            <a className={`${s.question} ${s.lil_question}`} onClick={() => {
-                                openInfo()
-                                typeInfo("context")
-                            }}>
-                                <i className="far fa-question-circle"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className={s.line}></div>
-
-            </div>
-            <div className={s.form}>
-
-                <div className={s.col}>
-                    <div className={s.header}>
-                        <div className={s.header_text}>
-                            Заполните поля ниже, все остальное настроят наши специалисты по настройке контекстной рекламы
-                        </div>
-                    </div>
-                    <div className={s.table_wrap}>
-                        <div className={s.table_container}>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Ссылка на сайт:</div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="link"
-                                            value={props.context.link}
-                                            onChange={onTextChange}
-                                            ref={link}
-                                            placeholder="Пример: https://example.com" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>
-                                        Ссылка на диск с файлом объявления:
-                                        <a className={s.question} onClick={() => {
-                                            openInfo()
-                                            typeInfo("disk")
-                                        }}>
-                                            <i className="far fa-question-circle"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="disk"
-                                            value={props.context.disk}
-                                            onChange={onTextChange}
-                                            ref={disk} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Город/населенный пункт (опционально): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="city"
-                                            value={props.context.city}
-                                            onChange={onTextChange}
-                                            ref={city}
-                                            placeholder="Пример: Москва" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Тематика ресурса: </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="good"
-                                            value={props.context.good}
-                                            onChange={onTextChange}
-                                            ref={good}
-                                            placeholder="Пример: Косметика" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Бюджет (минимум ₽3000): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                    <input name="budjet"
-                                            type="number"
-                                            min="3000"
-                                            value={props.context.budjet}
-                                            onChange={onTextChange}
-                                            ref={budjet} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Продолжительность (в неделях): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                    <input name="time"
-                                            type="number"
-                                            min="1"
-                                            max="1000"
-                                            value={props.context.time}
-                                            onChange={onTextChange}
-                                            ref={time} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Дополнительные сведения (опционально): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="content"
-                                            value={props.context.content}
-                                            onChange={onTextChange}
-                                            ref={content} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.button}>
-                                <button className={`${s.submit_btn} ${disabled}`} onClick={() => {
-                                    createPosition()
-                                    openInfo()
-                                    typeInfo("position")
-                                }}>{buttonText}</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div className={s.col}>
-                    <Table table={props.table} dispatch={props.dispatch} header={props.header} button="Отправить" />
-                </div>
-            </div>
-            <Helmet>
-                <title>Контекстная реклама - ChaseBox</title>
-                <meta name="Context"
-                    content={props.context.content} />
-            </Helmet>
-        </div>
-    );
+        <ContextDOM {...props} openInfo={openInfo} typeInfo={typeInfo} onTextChange={onTextChange} 
+        link={link} disk={disk} city={city} good={good} budjet={budjet} time={time} content={content}
+        disabled={disabled} createPosition={createPosition} buttonText={buttonText} cost={cost}/>
+        );
 }
 
 export default Context;

@@ -11,6 +11,7 @@ import { createPositionActionCreator } from './../../../redux/Table-reducer'
 import { openInfoModalActionCreator } from './../../../redux/Info-reducer'
 import { typeActionCreator } from './../../../redux/Info-reducer'
 import Info from './../../Info/Info'
+import EmailDOM from './EmailDOM';
 
 const Email = (props) => {
     const cost = 1;
@@ -73,124 +74,9 @@ const Email = (props) => {
     };
 
     return (
-        <div id={s.email}>
-            <div className={s.feature}>
-                <div className={s.feature_bar}>
-                    <div className={s.feature_wrap}>
-                        <div className={s.feature_text}>
-                            E-mail рассылка
-                            <a className={`${s.question} ${s.lil_question}`} onClick={() => {
-                                openInfo()
-                                typeInfo("email")
-                            }}>
-                                <i className="far fa-question-circle"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className={s.line}></div>
-
-            </div>
-            <div className={s.form}>
-
-                <div className={s.col}>
-                    <div className={s.header}>
-                        <div className={s.header_text}>
-                            Заполните поля ниже, все остальное настроят наши специалисты по E-mail рассылке
-                        </div>
-                    </div>
-                    <div className={s.table_wrap}>
-                        <div className={s.table_container}>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Ссылка на сайт:</div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="link"
-                                            value={props.email.link}
-                                            onChange={onTextChange}
-                                            ref={link}
-                                            placeholder="Пример: https://example.com" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Тип ресурса:</div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="type"
-                                            value={props.email.type}
-                                            onChange={onTextChange}
-                                            ref={type}
-                                            placeholder="Пример: Личный блог" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Ссылка на диск с файлом письма:
-                                        <a className={s.question} onClick={() => {
-                                            openInfo()
-                                            typeInfo("disk")
-                                        }}>
-                                            <i className="far fa-question-circle"></i>
-                                        </a>
-                                    </div>
-
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="content"
-                                            type="text"
-                                            value={props.email.content}
-                                            onChange={onTextChange}
-                                            ref={content} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Количество писем<br /> (от 20 000): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="num"
-                                            type="number"
-                                            min="20000"
-                                            value={props.email.num}
-                                            onChange={onTextChange}
-                                            ref={num}
-                                            placeholder="Минимум 20 000" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.button}>
-                                <button className={`${s.submit_btn} ${disabled}`} onClick={()=>{
-                                    createPosition()
-                                    openInfo()
-                                    typeInfo("position")
-                                    }}>{buttonText}</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div className={s.col}>
-                    <Table table={props.table} dispatch={props.dispatch} header={props.header} button="Отправить" />
-                </div>
-            </div>
-            <Info showRemoveModal={props.info.showModal} dispatch={props.dispatch} type={props.info.type} />
-
-            <Helmet>
-                <title>E-mail рассылка - ChaseBox</title>
-                <meta name="Email"
-                    content={props.email.content} />
-            </Helmet>
-        </div>
-    );
+    <EmailDOM {...props} openInfo={openInfo} typeInfo={typeInfo} onTextChange={onTextChange} link={link} type={type}
+    content={content} num={num} disabled={disabled} createPosition={createPosition} buttonText={buttonText} />
+        );
 }
 
 export default Email;

@@ -11,6 +11,7 @@ import { createPositionActionCreator } from '../../../redux/Table-reducer'
 import { openInfoModalActionCreator } from './../../../redux/Info-reducer'
 import { typeActionCreator } from './../../../redux/Info-reducer'
 import Info from './../../Info/Info'
+import SocialsDOM from './SocialsDOM';
 
 const Socials = (props) => {
     const cost = 3;
@@ -77,139 +78,9 @@ const Socials = (props) => {
     };
 
     return (
-        <div id={s.socials}>
-            <div className={s.feature}>
-                <div className={s.feature_bar}>
-                    <div className={s.feature_wrap}>
-                        <div className={s.feature_text}>
-                            Рассылка в социальных сетях
-                            <a className={`${s.question} ${s.lil_question}`} onClick={() => {
-                                openInfo()
-                                typeInfo("socials")
-                            }}>
-                                <i className="far fa-question-circle"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className={s.line}></div>
-
-            </div>
-            <div className={s.form}>
-
-                <div className={s.col}>
-                    <div className={s.header}>
-                        <div className={s.header_text}>
-                            Заполните поля ниже, все остальное настроят наши специалисты по рассылке в социальных сетях
-                        </div>
-                    </div>
-                    <div className={s.table_wrap}>
-                        <div className={s.table_container}>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Ссылка:</div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="link"
-                                            value={props.socials.link}
-                                            onChange={onTextChange}
-                                            ref={link}
-                                            placeholder="Пример: https://example.com" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Тип ресурса:</div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="type"
-                                            value={props.socials.type}
-                                            onChange={onTextChange}
-                                            ref={type}
-                                            placeholder="Пример: Личный блог" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Ссылка на диск с файлом письма:
-                                    <a className={s.question} onClick={() => {
-                                            openInfo()
-                                            typeInfo("disk")
-                                        }}>
-                                            <i className="far fa-question-circle"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="content"
-                                            value={props.socials.content}
-                                            onChange={onTextChange}
-                                            ref={content} />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Выберите соц. сеть: </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <select name="soc" id={s.soc} onChange={onTextChange} ref={soc}>
-                                            <option value="vk">VK</option>
-                                            <option value="instagram">Instagram</option>
-                                            <option value="facebook">Facebook</option>
-                                            <option value="odnoklassniki">Одноклассники</option>
-
-
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.table}>
-                                <div className={s.label_block}>
-                                    <div className={s.label}>Количество писем<br /> (от 10 000): </div>
-                                </div>
-                                <div className={s.input_block}>
-                                    <div className={s.input}>
-                                        <input name="num"
-                                            type="number"
-                                            min="10000"
-                                            value={props.socials.num}
-                                            onChange={onTextChange}
-                                            ref={num}
-                                            placeholder="Минимум 10 000" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={s.button}>
-                                <button className={`${s.submit_btn} ${disabled}`} onClick={()=>{
-                                    createPosition()
-                                    openInfo()
-                                    typeInfo("position")
-                                    }}>{buttonText}</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div className={s.col}>
-                    <Table table={props.table} dispatch={props.dispatch} header={props.header} button="Отправить" />
-                </div>
-            </div>
-            <Info showRemoveModal={props.info.showModal} dispatch={props.dispatch} type={props.info.type} />
-
-            <Helmet>
-                <title>Рассылка в социальных сетях - ChaseBox</title>
-                <meta name="Socials"
-                    content={props.socials.content} />
-            </Helmet>
-        </div>
-    );
+    <SocialsDOM {...props} openInfo={openInfo} typeInfo={typeInfo} onTextChange={onTextChange} link={link} type={type}
+    content={content} soc={soc} num={num} disabled={disabled} createPosition={createPosition} buttonText={buttonText} />
+        );
 }
 
 export default Socials;

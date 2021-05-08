@@ -3,6 +3,7 @@ import s from './Table.module.css'
 import { NavLink } from "react-router-dom";
 import Element from './Element/Element'
 import { sendDataActionCreator } from '../../redux/Pay-reducer'
+import TableDOM from './TableDOM';
 
 
 
@@ -54,54 +55,8 @@ const Table = (props) => {
     sumStr = props.table.sum
     sumStr = sumStr.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return (
-        <div className={s.content}>
-            {/* {elements} */}
-            <div className={s.content_container}>
-                <div className={s.table_header}>
-                    <div className={s.table_header_container}>
-                        <div className={s.label}>
-                            Заказы
-                        </div>
-                        <div className={s.button_block}>
-                            <span className={s.sum_block}>
-                                <span className={s.res}>Итого:</span>
-                                <span className={s.real_sum} style={{color: props.table.sum===0 ? "#9c9c9c" : "#4e4e4e"}}> ₽ {sumStr} </span>
-                            </span>
-
-                            <NavLink to="/pay" className={`${navClass} ${s.payPage} ${disabled}`} type={type}> {props.button} </NavLink>
-                        </div>
-                    </div>
-                </div>
-                <div className={s.table}>
-                    <div className={s.table_head}>
-                        <tr>
-                            <th className={`${s.table_element} ${s.first_item}`}>
-                                Имя пользователя
-                            </th>
-                            <th className={s.table_element}>
-                                Позиция
-                            </th>
-                            <th className={s.table_element}>
-                                Ссылка
-                            </th>
-                            <th className={s.table_element}>
-                                Дополнительно
-                            </th>
-                            <th className={s.table_element}>
-                                &nbsp;
-                            </th>
-                        </tr>
-                    </div>
-                    {elements}
-
-                    <div className={s.table_footer}>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+    
+        <TableDOM {...props} sumStr={sumStr} navClass={navClass} disabled={disabled} type={type} elements={elements} />
     );
 }
 
